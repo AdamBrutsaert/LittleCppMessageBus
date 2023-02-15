@@ -24,22 +24,20 @@ public:
 
 int main()
 {
-    MessageBus bus{};
-
     // Using lambda
-    bus.Subscribe<Key>(1, [](Key const &key) {
+    MessageBus::Subscribe<Key>(1, [](Key const &key) {
         std::cout << "[Lambda] Key: " << key.code << std::endl;
     });
 
     // Using function with a lower priority
-    bus.Subscribe<Key>(2, onKey);
+    MessageBus::Subscribe<Key>(2, onKey);
 
     // Using a callable object with a higher priority
-    bus.Subscribe<Key>(0, OnKeyCallable{});
+    MessageBus::Subscribe<Key>(0, OnKeyCallable{});
 
     // Sending event that are queued
-    bus.Send(Key{32});
-    bus.Send(Key{64});
+    MessageBus::Send(Key{32});
+    MessageBus::Send(Key{64});
 
     // Dispatching them
     MessageBus::Dispatch();
