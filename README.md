@@ -1,6 +1,7 @@
 # LittleMessageBus
 
-A sympathic implementation of a MessageBus extensively using C++ templates
+A sympathic implementation of a MessageBus extensively using C++ templates, made while I was on holidays at the beach (
+everyone does what they want with their vacation haha).
 
 ## Compiling
 
